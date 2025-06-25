@@ -16,7 +16,10 @@ $(TARGET): $(OBJ)
 
 .PHONY: clean
 
+valgrind:
+	make && valgrind ./$(TARGET)
+
 clean:
 	rm $(OBJ) $(TARGET)
 
-	
+
