@@ -1,18 +1,20 @@
 pipeline {
-  agent any
+  agent {
+      docker {image 'gcc:13'}
+  }
 
   stages {
     stage('Build') {
       steps {
         echo '=== Building Sliding Window ==='
-        bat 'make'
+        sh 'make'
       }
     }
 
     stage('Test') {
       steps {
         echo 'Testing...'
-        // bat './main_sliding'   // optional: run it
+        // sh './main_sliding'   // optional: run it
       }
     }
 
