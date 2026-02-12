@@ -5,14 +5,14 @@ pipeline {
     stage('Build') {
       steps {
         echo '=== Building Sliding Window ==='
-        sh 'make'
+        bat 'make'
       }
     }
 
     stage('Test') {
       steps {
         echo 'Testing...'
-        // sh './main_sliding'   // optional: run it
+        // bat './main_sliding'   // optional: run it
       }
     }
 
