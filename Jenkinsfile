@@ -1,18 +1,25 @@
-pipeline{
+pipeline {
   agent any
-    stages{
-     stage('Build'){
-        echo '=== Building Sliding Window ==='
-        make
-     }
-     stage('Test'){
-       echo 'Testing...'
-     } 
 
-     stage('Deploy'){
-       echo 'Deploy, Deploy, Deploy!'
-     } 
-      
+  stages {
+    stage('Build') {
+      steps {
+        echo '=== Building Sliding Window ==='
+        sh 'make'
+      }
     }
 
+    stage('Test') {
+      steps {
+        echo 'Testing...'
+        // sh './main_sliding'   // optional: run it
+      }
+    }
+
+    stage('Deploy') {
+      steps {
+        echo 'Deploy, Deploy, Deploy!'
+      }
+    }
   }
+}
